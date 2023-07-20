@@ -7,7 +7,7 @@ function App() {
 
   const get_pinned_map = async() =>{
     try{
-      const response = await fetch("http://127.0.0.1:8000/image/pinned");
+      const response = await fetch("https://marketmap-back.onrender.com/image/pinned");
       const imageUrl = await response.blob();
       setImageUrl(URL.createObjectURL(imageUrl));
     }catch(error){
@@ -17,7 +17,7 @@ function App() {
 
   const get_white_map = async() =>{
     try{
-      const response = await fetch("http://127.0.0.1:8000/image/white");
+      const response = await fetch("https://marketmap-back.onrender.com/image/white");
       const imageUrl = await response.blob();
       setWhiteImageUrl(URL.createObjectURL(imageUrl));
     }catch(error){
