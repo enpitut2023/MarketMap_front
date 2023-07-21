@@ -1,6 +1,7 @@
 import './App.css';
 import Papa from 'papaparse';
 import React, { useState, useEffect } from 'react';
+import DatabaseButtons from './DatabaseButtons';
 
 function App() {
   const [image, setImageUrl] = React.useState();
@@ -86,20 +87,14 @@ function App() {
         <div>
           <button onClick={() => send_back(numbers)}>マップを表示</button>
         </div>}
+        <div>
+          <h2>欲しい商品を下から選んでね</h2>
+          <DatabaseButtons database={csvData} addelem={addelem} />
+        </div>
         <p>買い物リスト</p>
         <ul>
           {selected.map((name, index) =>(
             <li key={index}>{name}</li>
-          ))}
-        </ul>
-        <h2>CSVファイルデータ：</h2>
-        <ul>
-          {csvData.map((row, index) => (
-            <li key={index}>
-              {Object.entries(row).map(([key, value]) => (
-                <span key={key}>{`${value} `}</span>
-              ))}
-            </li>
           ))}
         </ul>
         <p>
