@@ -77,16 +77,16 @@ function App() {
             <li key={index}>{name}</li>
           ))}
         </ul>
-        <h2>CSVファイルデータ：</h2>
-        <ul>
-          {csvData.map((row, index) => (
-            <li key={index}>
-              {Object.entries(row).map(([key, value]) => (
-                <span key={key}>{`${value} `}</span>
-              ))}
-            </li>
-          ))}
-        </ul>
+        {/* <h2>CSVファイルデータ：</h2> */}
+        {/* <ul> */}
+          {/* {csvData.map((row, index) => ( */}
+            {/* <li key={index}> */}
+              {/* {Object.entries(row).map(([key, value]) => ( */}
+                {/* <span key={key}>{`${value} `}</span> */}
+              {/* ))} */}
+            {/* </li> */}
+          {/* ))} */}
+        {/* </ul> */}
         <p>
           This is enPiT2023 project team K
         </p>
