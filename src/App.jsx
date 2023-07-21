@@ -6,6 +6,8 @@ function App() {
   const [image, setImageUrl] = React.useState();
   const [whiteimage, setWhiteImageUrl] = React.useState();
   const [csvData, setCsvData] = useState([]);
+  const [selected, setSelected] = useState([]);
+  const [numbers, setnumbers] = useState([]);
 
   const get_white_map = async() =>{
     try{
@@ -17,9 +19,15 @@ function App() {
     } 
   };
 
-  const send_back = async(number) =>{
+  const send_back = async(array) =>{
     try{
-      const response = await fetch(`https://marketmap-back.onrender.com/image/pinned?param=${number}`);
+      const response = await fetch(`https://marketmap-back.onrender.com/image/pinned`,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body:JSON.stringify(array),
+      });
       const imageUrl = await response.blob();
       setImageUrl(URL.createObjectURL(imageUrl));
     }catch(error){
@@ -48,6 +56,11 @@ function App() {
     fetchData();
   }, []);
 
+  const addelem = async(num, name) =>{
+    setSelected([...selected, name]);
+    setnumbers([...numbers], num);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -67,9 +80,9 @@ function App() {
         <div></div>
         }
         <p>
-          <button onClick={() => send_back(1)}>醤油</button>
-          <button onClick={() => send_back(2)}>マヨネーズ</button>
-          <button onClick={() => send_back(3)}>牛肉</button>
+          <button onClick={() => addelem(0, "醤油")}>醤油</button>
+          <button onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</button>
+          <button onClick={() => addelem(2, "牛肉")}>牛肉</button>
         </p>
         {image?
         <div>
