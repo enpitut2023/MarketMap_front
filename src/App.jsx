@@ -57,8 +57,8 @@ function App() {
         <h1 classname="title">
           Market Map
         </h1>
-        <p>以下から商品を選んでね！</p>
         <p>
+          <p>以下から商品を選んでね！</p>
           <button onClick={() => addelem(0, "醤油")}>醤油</button>
           <button onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</button>
           <button onClick={() => addelem(2, "牛肉")}>牛肉</button>
