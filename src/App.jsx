@@ -45,11 +45,7 @@ function App() {
         }
         <p>
           <button onClick={() => send_back(1)}>醤油</button>
-        </p>
-        <p>
           <button onClick={() => send_back(2)}>マヨネーズ</button>
-        </p>
-        <p>
           <button onClick={() => send_back(3)}>牛肉</button>
         </p>
         <p>
