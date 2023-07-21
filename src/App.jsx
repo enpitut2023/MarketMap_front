@@ -71,6 +71,19 @@ function App() {
           <button onClick={() => send_back(2)}>マヨネーズ</button>
           <button onClick={() => send_back(3)}>牛肉</button>
         </p>
+        {image?
+        <div>
+          <img src={image} alt="地図画像" width="100%" />
+        </div>:
+        <div>
+          <button onClick={() => send_back(numbers)}>マップを表示</button>
+        </div>}
+        <p>買い物リスト</p>
+        <ul>
+          {selected.map((name, index) =>(
+            <li key={index}>{name}</li>
+          ))}
+        </ul>
         <h2>CSVファイルデータ：</h2>
         <ul>
           {csvData.map((row, index) => (
