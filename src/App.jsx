@@ -1,5 +1,6 @@
 import './App.css';
 import React from "react";
+import { Button } from "@mui/material";
 
 function App() {
   const [image, setImageUrl] = React.useState();
@@ -35,7 +36,7 @@ function App() {
         <div>
           <img src={whiteimage} alt="地図画像" width="100%" />
         </div> :
-        <button onClick={get_white_map}>白地図を取得</button>
+        <Button variant="contained" onClick={get_white_map}>白地図を取得</Button>
         }
         {image ?
         <div>
@@ -51,6 +52,7 @@ function App() {
         <p>
           This is enPiT2023 project team K
         </p>
+        
       </header>
     </div>
   );
