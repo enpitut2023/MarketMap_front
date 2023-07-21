@@ -1,6 +1,7 @@
 import './App.css';
 import Papa from 'papaparse';
 import React, { useState, useEffect } from 'react';
+import { Button } from "@mui/material";
 
 function App() {
   const [image, setImageUrl] = React.useState();
@@ -59,16 +60,16 @@ function App() {
         </h1>
         <p>
           <p>以下から商品を選んでね！</p>
-          <button onClick={() => addelem(0, "醤油")}>醤油</button>
-          <button onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</button>
-          <button onClick={() => addelem(2, "牛肉")}>牛肉</button>
+          <Button variant="contained" color="secondary" onClick={() => addelem(0, "醤油")}>醤油</Button>
+          <Button variant="contained" color="secondary" onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</Button>
+          <Button variant="contained" color="secondary" onClick={() => addelem(2, "牛肉")}>牛肉</Button>
         </p>
         {image?
         <div>
           <img src={image} alt="地図画像" width="100%" />
         </div>:
         <div>
-          <button onClick={() => send_back(numbers)}>マップを表示</button>
+          <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
         </div>}
         <p>買い物リスト</p>
         <ul>
