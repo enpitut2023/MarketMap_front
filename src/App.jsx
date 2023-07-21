@@ -22,7 +22,17 @@ function App() {
       setWhiteImageUrl(URL.createObjectURL(imageUrl));
     }catch(error){
       console.error("取得失敗！", error);
-    }
+    } 
+  };
+
+  const send_back = async(number) =>{
+    try{
+      const response = await fetch(`https://marketmap-back.onrender.com/image/pinned?param=${number}`);
+      const imageUrl = await response.blob();
+      setWhiteImageUrl(URL.createObjectURL(imageUrl));
+    }catch(error){
+      console.error("取得失敗！", error);
+    } 
   };
 
   return (
@@ -44,6 +54,15 @@ function App() {
         </div> :
         <button onClick={get_white_map}>白地図を取得</button>
         }
+        <p>
+          <button onClick={() => send_back(1)}>醤油</button>
+        </p>
+        <p>
+          <button onClick={() => send_back(2)}>マヨネーズ</button>
+        </p>
+        <p>
+          <button onClick={() => send_back(3)}>牛肉</button>
+        </p>
         <p>
           This is enPiT2023 project team K
         </p>
