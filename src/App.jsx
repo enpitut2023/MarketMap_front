@@ -5,16 +5,6 @@ function App() {
   const [image, setImageUrl] = React.useState();
   const [whiteimage, setWhiteImageUrl] = React.useState();
 
-  const get_pinned_map = async() =>{
-    try{
-      const response = await fetch("https://marketmap-back.onrender.com/image/pinned");
-      const imageUrl = await response.blob();
-      setImageUrl(URL.createObjectURL(imageUrl));
-    }catch(error){
-      console.error("取得失敗！", error);
-    }
-  };
-
   const get_white_map = async() =>{
     try{
       const response = await fetch("https://marketmap-back.onrender.com/image/white");
@@ -29,7 +19,7 @@ function App() {
     try{
       const response = await fetch(`https://marketmap-back.onrender.com/image/pinned?param=${number}`);
       const imageUrl = await response.blob();
-      setWhiteImageUrl(URL.createObjectURL(imageUrl));
+      setImageUrl(URL.createObjectURL(imageUrl));
     }catch(error){
       console.error("取得失敗！", error);
     } 
@@ -41,18 +31,17 @@ function App() {
         <h1 classname="title">
           Market Map
         </h1>
-        {image ?
-        <div>
-          <img src={image} alt="地図画像" width="100%" />
-        </div> :
-        <button onClick={get_pinned_map}>ピン刺し済み地図を取得</button>
-        }
-
         {whiteimage ?
         <div>
           <img src={whiteimage} alt="地図画像" width="100%" />
         </div> :
         <button onClick={get_white_map}>白地図を取得</button>
+        }
+        {image ?
+        <div>
+          <img src={image} alt="地図画像" width="100%" />
+        </div>:
+        <div></div>
         }
         <p>
           <button onClick={() => send_back(1)}>醤油</button>
