@@ -4,20 +4,9 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
   const [image, setImageUrl] = React.useState();
-  const [whiteimage, setWhiteImageUrl] = React.useState();
   const [csvData, setCsvData] = useState([]);
   const [selected, setSelected] = useState([]);
   const [numbers, setnumbers] = useState([]);
-
-  const get_white_map = async() =>{
-    try{
-      const response = await fetch("https://marketmap-back.onrender.com/image/white");
-      const imageUrl = await response.blob();
-      setWhiteImageUrl(URL.createObjectURL(imageUrl));
-    }catch(error){
-      console.error("取得失敗！", error);
-    } 
-  };
 
   const send_back = async(array) =>{
     try{
@@ -68,12 +57,7 @@ function App() {
         <h1 classname="title">
           Market Map
         </h1>
-        {whiteimage ?
-        <div>
-          <img src={whiteimage} alt="地図画像" width="100%" />
-        </div> :
-        <button onClick={get_white_map}>白地図を取得</button>
-        }
+        <p>以下から商品を選んでね！</p>
         <p>
           <button onClick={() => addelem(0, "醤油")}>醤油</button>
           <button onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</button>
