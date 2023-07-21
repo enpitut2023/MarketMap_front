@@ -73,12 +73,6 @@ function App() {
         </div> :
         <button onClick={get_white_map}>白地図を取得</button>
         }
-        {image ?
-        <div>
-          <img src={image} alt="地図画像" width="100%" />
-        </div>:
-        <div></div>
-        }
         <p>
           <button onClick={() => addelem(0, "醤油")}>醤油</button>
           <button onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</button>
