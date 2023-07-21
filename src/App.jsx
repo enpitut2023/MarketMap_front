@@ -44,7 +44,7 @@ function App() {
         <div></div>
         }
         <p>
-          <button onClick={() => send_back(1)}>醤油2</button>
+          <button onClick={() => send_back(1)}>醤油</button>
           <button onClick={() => send_back(2)}>マヨネーズ</button>
           <button onClick={() => send_back(3)}>牛肉</button>
         </p>
