@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/sample.csv');
+        const response = await fetch('/data.csv');
         const csvText = await response.text();
 
         Papa.parse(csvText, {
