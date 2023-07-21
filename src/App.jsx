@@ -59,7 +59,7 @@ function App() {
 
   const addelem = async(num, name) =>{
     setSelected([...selected, name]);
-    setnumbers([...numbers], num);
+    setnumbers([...numbers, num]);
   };
 
   return (
