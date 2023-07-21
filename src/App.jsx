@@ -30,6 +30,7 @@ function App() {
       });
       const imageUrl = await response.blob();
       setImageUrl(URL.createObjectURL(imageUrl));
+      console.log(array);
     }catch(error){
       console.error("取得失敗！", error);
     } 
