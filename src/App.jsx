@@ -62,6 +62,11 @@ function App() {
     setSelected(updatedselected);
   };
 
+  const elemremove = (index) =>{
+    setSelected([...selected.slice(0,index), ...selected.slice(index+1)]);
+    setnumbers([...numbers.slice(0,index), ...numbers.slice(index+1)]);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -87,6 +92,7 @@ function App() {
             <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
           </div>
         )}
+
         <p>買い物リスト</p>
         <ul>
           {selected.map((item, index) =>(
@@ -95,10 +101,12 @@ function App() {
               {!item.completed && (
                 <button onClick={() => elemcomplete(index)}>買い物完了</button>
               )}
+              {!item.completed && (
+                <buttton onClick={()=> elemremove(index)}>削除</buttton>
+              )}
               </li>
           ))}
         </ul>
-
 
         <h2>CSVファイルデータ：</h2>
         <ul>
