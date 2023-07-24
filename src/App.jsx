@@ -102,7 +102,7 @@ function App() {
                 <button onClick={() => elemcomplete(index)}>買い物完了</button>
               )}
               {!item.completed && (
-                <buttton onClick={()=> elemremove(index)}>削除</buttton>
+                <button onClick={()=> elemremove(index)}>削除</button>
               )}
               </li>
           ))}
