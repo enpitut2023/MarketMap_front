@@ -105,11 +105,11 @@ function App() {
               )}
               </li>
           ))}
-          {boughtselected.map((item, index)=>{
+          {boughtselected.map((item, index)=>(
             <li key={index} style={{textDecoration: "line-through"}}>
               {item.name}
             </li>
-          })}
+          ))}
         </ul>
         {image?
         <div>
