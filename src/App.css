@@ -40,3 +40,13 @@
 .title{
   text-align: center;
 }
+
+ul {
+  overflow: auto;
+  max-height: 300px; 
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}

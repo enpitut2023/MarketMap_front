@@ -15,7 +15,7 @@ function App() {
   const send_back = async(array) =>{
     try{
       setIsLoading(true); //データを送る前に判定
-      const response = await fetch(`https://marketmap-back.onrender.com/image/pinned`,{
+      const response = await fetch(`http://127.0.0.1:8000/image/pinned`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
@@ -78,30 +78,33 @@ function App() {
         <p>
           <p>以下から商品を選んでね！</p>
         </p>
+        <ul>
         <DatabaseButtons database={csvData} addelem={addelem} />
+        </ul>
         <p>
             <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
         </p>
+        
         <p>買い物リスト</p>
         <ul>
-          {selected.map((name, index) =>(
-            <li key={index}>
-              {name}
-              <Button variant="outlined" color="warning" className="icon-button" onClick={() => elemcomplete(index)}>完了</Button>
-              <Button variant="outlined" color="warning" className="icon-button" onClick={()=> elemremove(index)}>削除</Button>
-            </li>
-          ))}
-          {boughtselected.map((name, index)=>(
-            <li key={index} style={{textDecoration: "line-through"}}>
-              {name}
-            </li>
-          ))}
+        {selected.map((name, index) => (
+        <li key={index}>
+          <input
+            type="checkbox"
+            checked={false}
+            onChange={() => elemcomplete(index)}
+          />
+          {name}
+          <button onClick={() => elemremove(index)}>削除</button>
+        </li>
+      ))}
+      {boughtselected.map((name, index) => (
+        <li key={index} style={{ textDecoration: "line-through" }}>
+          <input type="checkbox" checked={true} disabled />
+          {name}
+        </li>
+      ))}
         </ul>
-        {image?
-        <div>
-          <button onClick={()=>send_back(numbers)}>マップを再取得</button>
-        </div>:
-        null}
 
         {isLoading?(
           <div>
