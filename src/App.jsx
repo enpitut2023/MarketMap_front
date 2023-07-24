@@ -64,7 +64,10 @@ function App() {
         </h1>
         <p>
           <p>以下から商品を選んでね！</p>
-          <Button variant="contained" color="secondary" onClick={() => addelem(0, "醤油")}>醤油</Button>
+          <Button variant="contained" color="secondary" onClick={() => addelem(0, "醤油")}>
+            <img src="img/shoyu.png" alt="Icon" className="icon" />
+            <span>醤油</span>
+          </Button>
           <Button variant="contained" color="secondary" onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</Button>
           <Button variant="contained" color="secondary" onClick={() => addelem(2, "牛肉")}>牛肉</Button>
         </p>
