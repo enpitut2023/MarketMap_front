@@ -15,7 +15,7 @@ function App() {
   const send_back = async(array) =>{
     try{
       setIsLoading(true); //データを送る前に判定
-      const response = await fetch(`http://127.0.0.1:8000/image/pinned`,{
+      const response = await fetch(`https://marketmap-back.onrender.com/image/pinned`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
