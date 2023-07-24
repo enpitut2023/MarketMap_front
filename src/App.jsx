@@ -87,8 +87,8 @@ function App() {
           {selected.map((name, index) =>(
             <li key={index}>
               {name}
-              <button onClick={() => elemcomplete(index)}>完了</button>
-              <button onClick={()=> elemremove(index)}>削除</button>
+              <Button variant="outlined" color="warning" className="icon-button" onClick={() => elemcomplete(index)}>完了</Button>
+              <Button variant="outlined" color="warning" className="icon-button" onClick={()=> elemremove(index)}>削除</Button>
             </li>
           ))}
           {boughtselected.map((name, index)=>(

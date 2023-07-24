@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from "@mui/material";
 
 const DatabaseButtons = ({ database, addelem }) => {
 
@@ -10,10 +11,10 @@ const DatabaseButtons = ({ database, addelem }) => {
       const iconSrc = "/icon/" + data[5] + ".png";
 
       return (
-        <button key={buttonIndex} onClick={() => addelem(buttonIndex, buttonText)} className="database-button">
+        <Button key={buttonIndex} variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => addelem(buttonIndex, buttonText)} className="database-button">
           <img className="icon" src={iconSrc} alt="Icon" />
           <span>{buttonText}</span>
-        </button>
+        </Button>
       );
     });
   };
