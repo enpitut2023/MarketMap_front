@@ -53,7 +53,7 @@ function App() {
   }, []);
 
   const addelem = async(num, name) =>{
-    setSelected([...selected, {name, completed: false}]);
+    setSelected([...selected, name]);
     setnumbers([...numbers, num]);
   };
 
@@ -94,20 +94,16 @@ function App() {
         </p>
         <p>買い物リスト</p>
         <ul>
-          {selected.map((item, index) =>(
+          {selected.map((name, index) =>(
             <li key={index}>
-              {item.name}
-              {!item.completed && (
-                <button onClick={() => elemcomplete(index)}>完了</button>
-              )}
-              {!item.completed && (
-                <button onClick={()=> elemremove(index)}>削除</button>
-              )}
-              </li>
+              {name}
+              <button onClick={() => elemcomplete(index)}>完了</button>
+              <button onClick={()=> elemremove(index)}>削除</button>
+            </li>
           ))}
-          {boughtselected.map((item, index)=>(
+          {boughtselected.map((name, index)=>(
             <li key={index} style={{textDecoration: "line-through"}}>
-              {item.name}
+              {name}
             </li>
           ))}
         </ul>
