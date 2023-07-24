@@ -52,8 +52,14 @@ function App() {
   }, []);
 
   const addelem = async(num, name) =>{
-    setSelected([...selected, name]);
+    setSelected([...selected, {name, completed: false}]);
     setnumbers([...numbers, num]);
+  };
+
+  const elemcomplete = (index) =>{
+    const updatedselected = [...selected];
+    updatedselected[index].completed = true;
+    setSelected(updatedselected);
   };
 
   return (
@@ -81,19 +87,19 @@ function App() {
             <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
           </div>
         )}
-        {/* {image? */}
-        {/* <div> */}
-          {/* <img src={image} alt="地図画像" width="100%" /> */}
-        {/* </div>: */}
-        {/* <div> */}
-          {/* <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button> */}
-        {/* </div>} */}
         <p>買い物リスト</p>
         <ul>
-          {selected.map((name, index) =>(
-            <li key={index}>{name}</li>
+          {selected.map((item, index) =>(
+            <li key={index} style={{textDecoration: item.completed ? "Line-through":"none"}}>
+              {item.name}
+              {!item.completed && (
+                <button onClick={() => elemcomplete(index)}>買い物完了</button>
+              )}
+              </li>
           ))}
         </ul>
+
+
         <h2>CSVファイルデータ：</h2>
         <ul>
           {csvData.map((row, index) => (
