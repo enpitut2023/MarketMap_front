@@ -79,8 +79,14 @@ function App() {
             <img className="icon" src="/icon/shoyu.png" alt="Icon" />
             <span>醤油</span>
           </Button>
-          <Button variant="contained" color="secondary" onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</Button>
-          <Button variant="contained" color="secondary" onClick={() => addelem(2, "牛肉")}>牛肉</Button>
+          <Button className="icon-button" variant="contained" color="secondary" onClick={() => addelem(1, "マヨネーズ")}>
+            <img className="icon" src="/icon/mayonezu.png" alt="Icon" />
+            <span>マヨネーズ</span>
+          </Button>
+          <Button className="icon-button" variant="contained" color="secondary" onClick={() => addelem(2, "牛肉")}>
+            <img className="icon" src="/icon/gyuniku.png" alt="Icon" />
+            <span>牛肉</span>
+          </Button>
         </p>
         <p>
             <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
