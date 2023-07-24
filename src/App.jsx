@@ -79,20 +79,9 @@ function App() {
           <Button variant="contained" color="secondary" onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</Button>
           <Button variant="contained" color="secondary" onClick={() => addelem(2, "牛肉")}>牛肉</Button>
         </p>
-        {isLoading?(
-          <div>
-            <p>Now Loading...</p>
-          </div>
-        ):image ?(
-          <div>
-            <img src={image} alt="地図画像" width="100%" />
-          </div>
-        ):(
-          <div>
+        <p>
             <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
-          </div>
-        )}
-
+        </p>
         <p>買い物リスト</p>
         <ul>
           {selected.map((item, index) =>(
@@ -107,7 +96,16 @@ function App() {
               </li>
           ))}
         </ul>
-
+        {isLoading?(
+          <div>
+            <p>Now Loading...</p>
+          </div>
+        ):image ?(
+          <div>
+            <img src={image} alt="地図画像" width="100%" />
+          </div>
+        ):null}
+        
         <h2>CSVファイルデータ：</h2>
         <ul>
           {csvData.map((row, index) => (
