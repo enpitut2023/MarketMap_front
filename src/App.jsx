@@ -8,6 +8,7 @@ function App() {
   const [csvData, setCsvData] = useState([]);
   const [selected, setSelected] = useState([]);
   const [numbers, setnumbers] = useState([]);
+  const [boughtselected, setBoughtselected] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const send_back = async(array) =>{
@@ -57,9 +58,9 @@ function App() {
   };
 
   const elemcomplete = (index) =>{
-    const updatedselected = [...selected];
-    updatedselected[index].completed = true;
-    setSelected(updatedselected);
+    setBoughtselected([...boughtselected, selected[index]]);
+    setSelected([...selected.slice(0,index), ...selected.slice(index+1)]);
+    setnumbers([...numbers.slice(0,index), ...numbers.slice(index+1)]);
   };
 
   const elemremove = (index) =>{
@@ -88,17 +89,28 @@ function App() {
         <p>買い物リスト</p>
         <ul>
           {selected.map((item, index) =>(
-            <li key={index} style={{textDecoration: item.completed ? "Line-through":"none"}}>
+            <li key={index}>
               {item.name}
               {!item.completed && (
-                <button onClick={() => elemcomplete(index)}>買い物完了</button>
+                <button onClick={() => elemcomplete(index)}>完了</button>
               )}
               {!item.completed && (
                 <button onClick={()=> elemremove(index)}>削除</button>
               )}
               </li>
           ))}
+          {boughtselected.map((item, index)=>{
+            <li key={index} style={{textDecoration: "line-through"}}>
+              {item.name}
+            </li>
+          })}
         </ul>
+        {image?
+        <div>
+          <button onClick={()=>send_back(numbers)}>マップを再取得</button>
+        </div>:
+        null}
+
         {isLoading?(
           <div>
             <p>Now Loading...</p>
