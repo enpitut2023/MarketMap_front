@@ -8,9 +8,11 @@ function App() {
   const [csvData, setCsvData] = useState([]);
   const [selected, setSelected] = useState([]);
   const [numbers, setnumbers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const send_back = async(array) =>{
     try{
+      setIsLoading(true); //データを送る前に判定
       const response = await fetch(`https://marketmap-back.onrender.com/image/pinned`,{
         method:"POST",
         headers:{
@@ -23,7 +25,9 @@ function App() {
       console.log(array);
     }catch(error){
       console.error("取得失敗！", error);
-    } 
+    } finally{
+      setIsLoading(false); //データを送ったら初期値に戻す
+    }
   };
 
   useEffect(() => {
@@ -64,13 +68,26 @@ function App() {
           <Button variant="contained" color="secondary" onClick={() => addelem(1, "マヨネーズ")}>マヨネーズ</Button>
           <Button variant="contained" color="secondary" onClick={() => addelem(2, "牛肉")}>牛肉</Button>
         </p>
-        {image?
-        <div>
-          <img src={image} alt="地図画像" width="100%" />
-        </div>:
-        <div>
-          <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
-        </div>}
+        {isLoading?(
+          <div>
+            <p>Now Loading...</p>
+          </div>
+        ):image ?(
+          <div>
+            <img src={image} alt="地図画像" width="100%" />
+          </div>
+        ):(
+          <div>
+            <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
+          </div>
+        )}
+        {/* {image? */}
+        {/* <div> */}
+          {/* <img src={image} alt="地図画像" width="100%" /> */}
+        {/* </div>: */}
+        {/* <div> */}
+          {/* <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button> */}
+        {/* </div>} */}
         <p>買い物リスト</p>
         <ul>
           {selected.map((name, index) =>(
