@@ -15,7 +15,7 @@ function App() {
   const send_back = async(array) =>{
     try{
       setIsLoading(true); //データを送る前に判定
-      const response = await fetch(`https://marketmap-back.onrender.com/image/pinned`,{
+      const response = await fetch(`http://127.0.0.1:8000/image/pinned`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",
@@ -62,11 +62,18 @@ function App() {
     setBoughtselected([...boughtselected, selected[index]]);
     setSelected([...selected.slice(0,index), ...selected.slice(index+1)]);
     setnumbers([...numbers.slice(0,index), ...numbers.slice(index+1)]);
+    send_back([...numbers.slice(0,index), ...numbers.slice(index+1)]);
   };
 
   const elemremove = (index) =>{
     setSelected([...selected.slice(0,index), ...selected.slice(index+1)]);
     setnumbers([...numbers.slice(0,index), ...numbers.slice(index+1)]);
+  }
+
+  const comfirmremove = (index) =>{
+    if(window.confirm(`"${selected[index]}"を削除します、よろしいですか？`)){
+      elemremove(index);
+    }
   }
 
   return (
@@ -78,7 +85,7 @@ function App() {
         <p>
           <p>以下から商品を選んでね！</p>
         </p>
-        <ul>
+        <ul className='buttons'>
         <DatabaseButtons database={csvData} addelem={addelem} />
         </ul>
         <p>
@@ -86,25 +93,25 @@ function App() {
         </p>
         
         <p>買い物リスト</p>
-        <ul>
+        <div className='elements'>
         {selected.map((name, index) => (
-        <li key={index}>
+        <ul key={index} className='selected'>
           <input
             type="checkbox"
             checked={false}
             onChange={() => elemcomplete(index)}
           />
           {name}
-          <button onClick={() => elemremove(index)}>削除</button>
-        </li>
+          <button onClick={() => comfirmremove(index)}>削除</button>
+        </ul>
       ))}
       {boughtselected.map((name, index) => (
-        <li key={index} style={{ textDecoration: "line-through" }}>
+        <ul key={index} style={{ textDecoration: "line-through" }} className='bought'>
           <input type="checkbox" checked={true} disabled />
           {name}
-        </li>
-      ))}
         </ul>
+      ))}
+        </div>
 
         {isLoading?(
           <div>

@@ -50,3 +50,28 @@ input[type="checkbox"] {
   width: 20px;
   height: 20px;
 }
+
+.elements {
+  margin: 8px auto;
+  text-align: center;
+}
+
+.selected {
+  margin: 4px 0; /* 上下に余白を追加 */
+  padding-left: 0;
+  list-style: none;
+  display: block;
+}
+
+.bought {
+  margin: 4px 0; /* 上下に余白を追加 */
+  padding-left: 0;
+  list-style: none;
+  display: block;
+}
+
+.buttons{
+  padding-left: 0;
+	list-style: none;
+	display: inline-block;
+}
