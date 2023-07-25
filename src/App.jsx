@@ -137,9 +137,9 @@ function App() {
         <h1 classname="title">
           Market Map
         </h1>
-        <p>
-          <p>以下から商品を選んでね！</p>
-        </p>
+        <p>＠カスミ　テクノパーク桜店</p>
+        <p>以下から商品を選んでね！</p>
+      
         <Box sx={{ width: '100%'}}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
             <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" textColor="#ffffff">
