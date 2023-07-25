@@ -60,14 +60,14 @@ input[type="checkbox"] {
   margin: 4px 0; /* 上下に余白を追加 */
   padding-left: 0;
   list-style: none;
-  display: block;
+  display: table;
 }
 
 .bought {
   margin: 4px 0; /* 上下に余白を追加 */
   padding-left: 0;
   list-style: none;
-  display: block;
+  display: table;
 }
 
 .buttons{
