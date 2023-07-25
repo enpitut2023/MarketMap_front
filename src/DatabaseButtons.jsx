@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@mui/material";
 
-const DatabaseButtons = ({ database, addelem }) => {
+const DatabaseButtons = ({ database, addelem, category}) => {
 
   // データからボタンの生成
   const generateButtons = () => {
@@ -9,13 +9,16 @@ const DatabaseButtons = ({ database, addelem }) => {
       const buttonIndex = data[0]; 
       const buttonText = data[2]; 
       const iconSrc = "/icon/" + data[5] + ".png";
+      const buttonCategory = data[1];
 
-      return (
-        <Button key={buttonIndex} variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => addelem(buttonIndex, buttonText)} className="database-button">
-          <img className="icon" src={iconSrc} alt="Icon" />
-          <span>{buttonText}</span>
-        </Button>
-      );
+      if(buttonCategory === category){
+        return (
+          <Button key={buttonIndex} variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => addelem(buttonIndex, buttonText)} className="database-button">
+            <img className="icon" src={iconSrc} alt="Icon" />
+            <span>{buttonText}</span>
+          </Button>
+        );
+      }
     });
   };
 
