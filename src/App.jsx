@@ -142,32 +142,98 @@ function App() {
         </p>
         <Box sx={{ width: '100%'}}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
-            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto">
-              <Tab label="肉類" {...a11yProps(0)} sx={{ color: '#ffffff' }}/>
-              <Tab label="魚介・海藻・卵" {...a11yProps(1)} sx={{ color: '#ffffff' }}/>
-              <Tab label="野菜・フルーツ" {...a11yProps(2)} sx={{ color: '#ffffff' }}/>
-              <Tab label="米類" {...a11yProps(3)} sx={{ color: '#ffffff' }}/>
-              <Tab label="パン類" {...a11yProps(4)} sx={{ color: '#ffffff' }}/>
-              <Tab label="生麺類" {...a11yProps(5)} sx={{ color: '#ffffff' }}/>
+            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" textColor="#ffffff">
+              <Tab label="肉類" {...a11yProps(0)} />
+              <Tab label="卵・乳製品" {...a11yProps(1)} />
+              <Tab label="魚介・海藻" {...a11yProps(2)} />
+              <Tab label="野菜・フルーツ" {...a11yProps(3)} />
+              <Tab label="米類・シリアル" {...a11yProps(4)} />
+              <Tab label="パン類" {...a11yProps(5)} />
+              <Tab label="麺類" {...a11yProps(6)} />
+              <Tab label="ご飯のお供" {...a11yProps(7)} />
+              <Tab label="惣菜・冷凍食品" {...a11yProps(8)} />
+              <Tab label="調味料" {...a11yProps(9)} />
+              <Tab label="菓子類" {...a11yProps(10)} />
+              <Tab label="デザート" {...a11yProps(11)} />
+              <Tab label="生活用品" {...a11yProps(12)} />
+              <Tab label="飲料" {...a11yProps(13)} />
+              <Tab label="その他" {...a11yProps(14)} />
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
+          <ul className='buttons'>
             <DatabaseButtons database={csvData} addelem={addelem} category={'肉類'}/>
+          </ul>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-            <DatabaseButtons database={csvData} addelem={addelem} category={'魚介・海藻'}/>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'卵・乳製品'}/>
+          </ul>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
-            <DatabaseButtons database={csvData} addelem={addelem} category={'野菜・フルーツ'}/>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'魚介・海藻'}/>
+          </ul>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={3}>
-            <DatabaseButtons database={csvData} addelem={addelem} category={'米類'}/>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'野菜・フルーツ'}/>
+          </ul>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={4}>
-            <DatabaseButtons database={csvData} addelem={addelem} category={'パン類'}/>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'米類・シリアル'}/>
+          </ul>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={5}>
-            <DatabaseButtons database={csvData} addelem={addelem} category={'生麺類'}/>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'パン類'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={6}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'麺類'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={7}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'ご飯のお供'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={8}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'惣菜・冷凍食品'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={9}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'調味料'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={10}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'菓子類'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={11}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'デザート'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={12}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'生活用品'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={13}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'飲料'}/>
+          </ul>
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={14}>
+          <ul className='buttons'>
+            <DatabaseButtons database={csvData} addelem={addelem} category={'その他'}/>
+          </ul>
           </CustomTabPanel>
         </Box>
         
