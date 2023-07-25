@@ -3,6 +3,11 @@ import Papa from 'papaparse';
 import React, { useState, useEffect } from 'react';
 import { Button } from "@mui/material";
 import DatabaseButtons from './DatabaseButtons';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function App() {
   const [image, setImageUrl] = React.useState();
@@ -86,9 +91,44 @@ function App() {
         <p>
           <p>以下から商品を選んでね！</p>
         </p>
-        <ul className='buttons'>
-        <DatabaseButtons database={csvData} addelem={addelem} />
-        </ul>
+        <div>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                肉類
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <ul className='buttons'>
+                <DatabaseButtons database={csvData} addelem={addelem} category={"肉類"}/>
+              </ul>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+          <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                魚介・海藻
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <ul className='buttons'>
+                <DatabaseButtons database={csvData} addelem={addelem} category={"魚介・海藻"}/>
+              </ul>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </div>
         <p>
             <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
         </p>
