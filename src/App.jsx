@@ -128,6 +128,78 @@ function App() {
               </Typography>
             </AccordionDetails>
           </Accordion>
+          <Accordion>
+          <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                野菜・フルーツ
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <ul className='buttons'>
+                <DatabaseButtons database={csvData} addelem={addelem} category={"野菜・フルーツ"}/>
+              </ul>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+          <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                米類
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <ul className='buttons'>
+                <DatabaseButtons database={csvData} addelem={addelem} category={"米類"}/>
+              </ul>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+          <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                パン類
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <ul className='buttons'>
+                <DatabaseButtons database={csvData} addelem={addelem} category={"パン類"}/>
+              </ul>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+          <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography>
+                生麺類
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
+              <ul className='buttons'>
+                <DatabaseButtons database={csvData} addelem={addelem} category={"生麺類"}/>
+              </ul>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
         </div>
         <p>
             <Button variant="contained" onClick={() => send_back(numbers)}>マップを表示</Button>
