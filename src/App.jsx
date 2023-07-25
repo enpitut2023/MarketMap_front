@@ -51,6 +51,7 @@ function App() {
   const [boughtselected, setBoughtselected] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = React.useState(0);
+  const [boughtnumbers, setBoughtnumbers] = useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -105,6 +106,7 @@ function App() {
   const elemcomplete = (index) => {
     setBoughtselected([...boughtselected, selected[index]]);
     setSelected([...selected.slice(0, index), ...selected.slice(index + 1)]);
+    setBoughtnumbers([...boughtnumbers, numbers[index]]);
     setnumbers([...numbers.slice(0, index), ...numbers.slice(index + 1)]);
     send_back([...numbers.slice(0, index), ...numbers.slice(index + 1)]);
   };
@@ -119,6 +121,14 @@ function App() {
     if (window.confirm(`"${selected[index]}"を削除します、よろしいですか？`)) {
       elemremove(index);
     }
+  }
+
+  const undocomplete = (index) =>{
+    setSelected([...selected, boughtselected[index]]);
+    setnumbers([...numbers, boughtnumbers[index]]);
+    send_back([...numbers, boughtnumbers[index]]);
+    setBoughtselected([...boughtselected.slice(0,index), ...boughtselected.slice(index+1)]);
+    setBoughtnumbers([...boughtnumbers.slice(0,index), ...boughtnumbers.slice(index+1)]);
   }
 
   return (
@@ -174,19 +184,15 @@ function App() {
         <div className='elements'>
           {selected.map((name, index) => (
             <ul key={index} className='selected'>
-              <input
-                type="checkbox"
-                checked={false}
-                onChange={() => elemcomplete(index)}
-              />
               {name}
+              <button onClick={() => elemcomplete(index)}>カゴに入れた</button>
               <button onClick={() => comfirmremove(index)}>削除</button>
             </ul>
           ))}
           {boughtselected.map((name, index) => (
             <ul key={index} style={{ textDecoration: "line-through" }} className='bought'>
-              <input type="checkbox" checked={true} disabled />
               {name}
+              <button onClick={() => undocomplete(index)}>元に戻す</button>
             </ul>
           ))}
         </div>
