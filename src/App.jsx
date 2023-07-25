@@ -11,7 +11,7 @@ function App() {
   const [numbers, setnumbers] = useState([]);
   const [boughtselected, setBoughtselected] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  
   const send_back = async(array) =>{
     try{
       setIsLoading(true); //データを送る前に判定
