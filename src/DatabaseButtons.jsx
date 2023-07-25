@@ -18,6 +18,8 @@ const DatabaseButtons = ({ database, addelem, category}) => {
             <span>{buttonText}</span>
           </Button>
         );
+      }else {
+        return null
       }
     });
   };
