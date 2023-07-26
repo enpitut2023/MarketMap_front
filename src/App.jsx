@@ -251,14 +251,14 @@ function App() {
           {selected.map((name, index) => (
             <ul key={index} className='selected'>
               {name}
-              <button onClick={() => elemcomplete(index)}>カゴに入れた</button>
-              <button onClick={() => comfirmremove(index)}>削除</button>
+              <Button variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => elemcomplete(index)}>カゴに入れた</Button>
+              <Button variant="contained"  color="error" sx={{color: "white", background: "dimgray"}} onClick={() => comfirmremove(index)}>削除</Button>
             </ul>
           ))}
           {boughtselected.map((name, index) => (
             <ul key={index} style={{ textDecoration: "line-through" }} className='bought'>
               {name}
-              <button onClick={() => undocomplete(index)}>元に戻す</button>
+              <Button variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => undocomplete(index)}>元に戻す</Button>
             </ul>
           ))}
         </div>
