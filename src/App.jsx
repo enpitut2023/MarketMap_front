@@ -256,9 +256,9 @@ function App() {
             </ul>
           ))}
           {boughtselected.map((name, index) => (
-            <ul key={index} style={{ textDecoration: "line-through" }} className='bought'>
-              {name}
-              <Button variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => undocomplete(index)}>元に戻す</Button>
+            <ul key={index} className='bought'>
+              <li style={{ textDecoration: "line-through" , display: "inline-block"}}>{name}</li>
+              <Button variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => undocomplete(index)} style={{textDecoration: "none"}}>元に戻す</Button>
             </ul>
           ))}
         </div>
