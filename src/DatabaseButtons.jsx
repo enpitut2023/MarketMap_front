@@ -13,7 +13,7 @@ const DatabaseButtons = ({ database, addelem, category}) => {
 
       if(buttonCategory === category){
         return (
-          <Button key={buttonIndex} variant="contained"  sx={{color: "white", background: "dimgray"}} onClick={() => addelem(buttonIndex, buttonText)} className="database-button">
+          <Button key={buttonIndex} variant="contained"  sx={{color: "white", background: "dimgray", fontSize: '10px'}} onClick={() => addelem(buttonIndex, buttonText)} className="database-button">
             <img className="icon" src={iconSrc} alt="Icon" />
             <span>{buttonText}</span>
           </Button>

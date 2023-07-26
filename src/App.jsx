@@ -134,7 +134,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 classname="title">
+        <h1 className="title">
           Market Map
         </h1>
         <p>＠カスミ　テクノパーク桜店</p>
@@ -142,7 +142,7 @@ function App() {
       
         <Box sx={{ width: '100%'}}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
-            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" textColor="#ffffff">
+            <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto" textColor="inherit">
               <Tab label="肉類" {...a11yProps(0)} />
               <Tab label="卵・乳製品" {...a11yProps(1)} />
               <Tab label="魚介・海藻" {...a11yProps(2)} />

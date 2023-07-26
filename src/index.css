@@ -12,21 +12,6 @@ code {
     monospace;
 }
 
-.icon-button {
-  display: flex;
-  flex-direction: column; /* flex-directionをcolumnに設定し、アイコンとテキストを垂直に並べる */
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  background-color: #89e4a8; 
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  height: 15pt;
-  flex-basis: 10%;
-}
-
 .icon{
   top: 0;
   left: 0;
@@ -52,10 +37,11 @@ code {
   padding: 8px 5px;
   flex-basis: 25%;
   height: 80px;
-  background-color: #fff;
+  background-color: dimgray;
   color: black;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 10px;
 }
 
